@@ -8,7 +8,13 @@ Frontend Live App: https://staging.d2h839mt1p599r.amplifyapp.com/
 
 Backend API: http://3.109.121.197:8000 (depyloyed on EC2)
 
-⚠️ If the deployed link shows a server error, you can still run the app locally by following the steps below.
+⚠️ If the deployed link shows a server error, you can still run the app using
+
+1. Frontend Live App: https://deploy-frontend-vercel-dun.vercel.app/
+   
+   OR
+
+2. Run locally by following the steps below.
 
 🛠 Run Locally
 
@@ -35,3 +41,4 @@ Clone this repository
 👉 The app will now be running at http://localhost:5173/ 🎉
 
 DATASET LINK : https://drive.google.com/drive/folders/1ISsQc01o1maa4GPAaAe-71eXmnXg4xLj
+
