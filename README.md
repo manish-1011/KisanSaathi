@@ -33,3 +33,5 @@ Clone this repository
 
 
 👉 The app will now be running at http://localhost:5173/ 🎉
+
+DATASET LINK : https://drive.google.com/drive/folders/1ISsQc01o1maa4GPAaAe-71eXmnXg4xLj
