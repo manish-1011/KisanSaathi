@@ -1,0 +1,10 @@
+python-dotenv
+psycopg2-binary
+pgvector
+openai
+fastapi
+pydantic
+google-generativeai
+google-adk
+requests
+uvicorn

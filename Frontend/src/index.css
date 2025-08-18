@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Default light mode colors - these will be overridden by JS immediately */
+  --bg: #F4F7FB;
+  --panel: #FFFFFF;
+  --border: #E5E9F2;
+  --text: #0F172A;
+  --muted: #8A94A6;
+}
+
+/* Prevent flash of white content */
+html {
+  background-color: #F4F7FB; /* Default light background */
+}
+
+/* Dark mode colors */
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --panel: #1E293B;
+  --border: #334155;
+  --text: #F1F5F9;
+  --muted: #94A3B8;
+}
+
+#root {
+  margin: auto;
+}
+
+/* Import main styles */
+@import './styles.css';
+
+/* Heading styles for markdown */
+.markdown-heading {
+  margin: 2px 0 1px 0; /* Reduced margin for headings */
+  line-height: 1.3;
+  display: block;
+}
+
+.markdown-heading .markdown-bold {
+  font-weight: 700;
+  font-size: 1.05em; /* Slightly larger for headings */
+}
+
+/* Reduce spacing in bot bubbles specifically */
+.bubble.bot .markdown-heading {
+  margin: 1px 0 0 0;
+}
+
+/* Ultra-compact spacing for headings */
+.compact-spacing .markdown-heading {
+  margin: 1px 0 0 0;
+  line-height: 1.2;
+}
+
+/* Base styles for compatibility */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure dark theme is properly applied */
+[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced scroll behavior for chat containers */
+.chat-window {
+  scroll-behavior: smooth;
+}
+
+/* Ensure sidebar positioning doesn't conflict with topbar */
+.sidebar.desktop {
+  margin-top: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Improved sidebar toggle button positioning */
+.side-rail {
+  z-index: 15;
+  transition: all 0.2s ease;
+}
+
+.side-rail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.15);
+}
+
+/* Loading Overlay Styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-overlay-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.loading-overlay-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: var(--panel);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(16, 24, 40, 0.25);
+  max-width: 320px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  position: relative;
+}
+
+.spinner-ring {
+  width: 100%;
+  height: 100%;
+  border: 4px solid #E5E7EB;
+  border-top: 4px solid #020201;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-message {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Enhanced Markdown Renderer Styles */
+.markdown-content {
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.markdown-content.compact-spacing {
+  line-height: 1.4;
+}
+
+.markdown-bold {
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Precise spacing control */
+.single-break {
+  display: block;
+  height: 1.5em; /* Exactly one line break */
+  margin: 0;
+  padding: 0;
+}
+
+.double-break {
+  display: block;
+  height: 3em; /* Exactly two line breaks */
+  margin: 0;
+  padding: 0;
+}
+
+/* Single line spacing between content blocks */
+.single-line-spacing {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+
+/* Enhanced spacing after bullet lists - MAIN FIX for spacing issue */
+.post-bullet-list-spacing {
+  display: block;
+  height: 1.8em; /* Increased from 1em to 1.8em for more distance from last bullet point */
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Minimal spacing after bullet lists - REDUCED spacing for better layout */
+.minimal-post-list-spacing {
+  display: block;
+  height: 0.5em; /* Much smaller spacing after bullet lists */
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Minimal spacing between lines */
+.minimal-line-spacing {
+  display: block;
+  height: 0.2em;
+}
+
+/* Precise spacing utilities */
+.precise-spacing {
+  line-height: 1.5;
+}
+
+.precise-spacing .content-block {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.precise-spacing .bullet-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.precise-spacing .bullet-item {
+  margin: 0.2em 0;
+  line-height: 1.5;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+.precise-spacing .heading {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Direct spacing overrides - force spacing control */
+.direct-spacing-override * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.direct-spacing-override .text-line {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.5em !important;
+}
+
+.direct-spacing-override .single-space {
+  display: block !important;
+  height: 1.5em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.direct-spacing-override .double-space {
+  display: block !important;
+  height: 3em !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.direct-spacing-override ul {
+  margin: 0 !important;
+  padding: 0 0 0 20px !important;
+  list-style: disc !important;
+}
+
+.direct-spacing-override li {
+  margin: 0.3em 0 !important;
+  padding: 0 !important;
+  line-height: 1.5em !important;
+}
+
+/* Text elements with proper spacing */
+.markdown-text {
+  display: inline;
+}
+
+/* Single line break styling */
+.markdown-content br {
+  line-height: 1.5;
+}
+
+/* Better text rendering for markdown content */
+.bubble .markdown-content {
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Remove excessive spacing in compact mode */
+.compact-spacing .markdown-text {
+  margin: 0;
+  padding: 0;
+}
+
+.compact-spacing .minimal-line-spacing {
+  height: 0.1em;
+}
+
+/* Enhanced Bullet List Styles */
+.markdown-bullet-list {
+  margin: 4px 0;
+  padding-left: 18px;
+  list-style: none;
+}
+
+.markdown-bullet-item {
+  position: relative;
+  margin: 2px 0;
+  padding-left: 14px;
+  line-height: 1.4;
+}
+
+.markdown-bullet-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: inherit;
+  font-weight: bold;
+}
+
+/* Enhanced Markdown Renderer Styles */
+.enhanced-markdown-content {
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.enhanced-markdown-content.compact-spacing {
+  line-height: 1.4;
+}
+
+.enhanced-markdown-bullet-list {
+  margin: 4px 0;
+  padding-left: 18px;
+  list-style: none;
+}
+
+.enhanced-markdown-bullet-item {
+  position: relative;
+  margin: 3px 0;
+  padding-left: 14px;
+  line-height: 1.5;
+}
+
+.enhanced-markdown-bullet-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: inherit;
+  font-weight: bold;
+}
+
+/* Enhanced spacing after bullet lists */
+.post-bullet-list-spacing {
+  display: block;
+  height: 1.8em; /* Increased from 1em to 1.8em for more distance */
+  margin: 0;
+  padding: 0;
+}
+
+/* Minimal spacing after bullet lists - REDUCED spacing for better layout */
+.minimal-post-list-spacing {
+  display: block;
+  height: 0.5em; /* Much smaller spacing after bullet lists */
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.enhanced-markdown-heading {
+  margin: 2px 0 1px 0;
+  line-height: 1.3;
+  display: block;
+}
+
+.enhanced-markdown-heading .enhanced-markdown-bold {
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+.enhanced-markdown-bold {
+  font-weight: 700;
+  color: inherit;
+}
+
+.enhanced-markdown-text {
+  display: inline;
+}
+
+/* Adjust bullet styles for different bubble types in enhanced renderer */
+.bubble.user .enhanced-markdown-bullet-item::before {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bubble.bot .enhanced-markdown-bullet-item::before {
+  color: #1F7507;
+}
+
+/* Enhanced spacing in chat bubbles */
+.bubble .enhanced-markdown-bullet-list {
+  margin: 3px 0;
+}
+
+.bubble .enhanced-markdown-bullet-list:first-child {
+  margin-top: 0;
+}
+
+.bubble .enhanced-markdown-bullet-list:last-child {
+  margin-bottom: 0;
+}
+
+/* Better bold text visibility in different contexts for enhanced renderer */
+.bubble.user .enhanced-markdown-bold {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 800;
+}
+
+.bubble.bot .enhanced-markdown-bold {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Adjust bullet styles for different bubble types */
+.bubble.user .markdown-bullet-item::before {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bubble.bot .markdown-bullet-item::before {
+  color: #1F7507;
+}
+
+/* Enhanced spacing in chat bubbles */
+.bubble .markdown-bullet-list {
+  margin: 3px 0;
+}
+
+.bubble .markdown-bullet-list:first-child {
+  margin-top: 0;
+}
+
+.bubble .markdown-bullet-list:last-child {
+  margin-bottom: 0;
+}
+
+/* Improved paragraph spacing - much tighter */
+.markdown-paragraph {
+  margin: 0.1em 0;
+  display: inline;
+}
+
+.markdown-paragraph:first-child {
+  margin-top: 0;
+}
+
+.markdown-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Ultra-compact paragraph spacing */
+.compact-spacing .markdown-paragraph {
+  margin: 0;
+  display: inline;
+}
+
+/* Better bold text visibility in different contexts */
+.bubble.user .markdown-bold {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 800;
+}
+
+.bubble.bot .markdown-bold {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Ultra-compact spacing utilities */
+.ultra-compact-spacing {
+  margin: 0.125rem 0 !important;
+}
+
+.ultra-compact-padding {
+  padding: 0.25rem !important;
+}
+
+.ultra-reduced-gap {
+  gap: 0.25rem !important;
+}
+
+.zero-margin {
+  margin: 0 !important;
+}
+
+.minimal-padding {
+  padding: 0.125rem !important;
+}
+
+.tight-line-height {
+  line-height: 1.2 !important;
+}
+
+/* Improved spacing utilities for text content */
+.compact-text-spacing {
+  line-height: 1.3 !important;
+}
+
+.compact-text-spacing * {
+  margin: 0 !important;
+}
+
+.compact-text-spacing .markdown-heading {
+  margin: 1px 0 !important;
+  line-height: 1.2 !important;
+}
+
+.compact-text-spacing .markdown-text {
+  display: inline !important;
+}
+
+.ultra-compact-text {
+  line-height: 1.2 !important;
+}
+
+.ultra-compact-text * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ultra-compact-text .markdown-heading {
+  margin: 0 !important;
+  line-height: 1.1 !important;
+}
+
+/* Fix for excessive spacing in chat bubbles */
+.bubble .markdown-content.compact-spacing {
+  line-height: 1.3;
+}
+
+.bubble .markdown-content.compact-spacing .markdown-text {
+  display: inline;
+  margin: 0;
+}
+
+.bubble .markdown-content.compact-spacing .minimal-line-spacing {
+  height: 0.1em;
+}

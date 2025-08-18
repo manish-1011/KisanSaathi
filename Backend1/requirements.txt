@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+asyncpg
+httpx[http2]>=0.27
+python-dotenv
+google-generativeai
+orjson
+requests
+pydantic
+asyncpg

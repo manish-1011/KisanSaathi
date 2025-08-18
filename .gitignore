@@ -1,0 +1,91 @@
+# ------------------------
+# Node.js
+# ------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Build output
+dist/
+build/
+.next/
+.nuxt/
+out/
+.cache/
+jspm_packages/
+
+# Environment files
+.env
+.env.*
+
+# ------------------------
+# Python
+# ------------------------
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+.eggs/
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environment folders
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+my_env/
+myenv/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pyre/
+
+# ------------------------
+# IDE / Editor junk
+# ------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ------------------------
+# OS files
+# ------------------------
+.DS_Store
+Thumbs.db
