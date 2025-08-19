@@ -4,24 +4,23 @@ KisanSaathi is a multilingual AI-powered chatbot designed for farmers. It helps 
 
 🚀 Deployed Links
 
-Frontend Live App: https://staging.d2h839mt1p599r.amplifyapp.com/
+Frontend Live App: 
+https://deploy-frontend-vercel-dun.vercel.app/
 
 Backend API: http://3.109.121.197:8000 (depyloyed on EC2)
 
-⚠️ If the deployed link shows a server error, you can still run the app using
+⚠️ Note:
+If you see a “Fetching Error”, it usually means the EC2 container on AWS (backend server) is not active at the moment.It will get active after 1st user query.
 
-1. Frontend Live App: https://deploy-frontend-vercel-dun.vercel.app/
-   
-   OR
+👉 Just re-click the Frontend Live App link provided — the service will restart and work fine.
 
-2. Run locally by following the steps below.
+⚠️ If Still the deployed link shows a server error, you can still run the app 
+
+Run locally by following the steps below.
 
 🛠 Run Locally
 
 Clone this repository
-
-
-
 
 1.Go into the frontend directory
 
@@ -41,4 +40,5 @@ Clone this repository
 👉 The app will now be running at http://localhost:5173/ 🎉
 
 DATASET LINK : https://drive.google.com/drive/folders/1ISsQc01o1maa4GPAaAe-71eXmnXg4xLj
+
 
