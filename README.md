@@ -5,7 +5,7 @@ KisanSaathi is a multilingual AI-powered chatbot designed for farmers. It helps 
 🚀 Deployed Links
 
 Frontend Live App: 
-https://deploy-frontend-vercel-dun.vercel.app/
+https://finalist-iota.vercel.app/
 
 Backend API: http://3.109.121.197:8000 (depyloyed on EC2)
 
@@ -40,5 +40,6 @@ Clone this repository
 👉 The app will now be running at http://localhost:5173/ 🎉
 
 DATASET LINK : https://drive.google.com/drive/folders/1ISsQc01o1maa4GPAaAe-71eXmnXg4xLj
+
 
 
